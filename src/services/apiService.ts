@@ -1,18 +1,15 @@
 import axios, { AxiosResponse } from 'axios';
+import axiosInstance from '../config/axios';
 
 const apiService = (() => {
-  const apiBaseUrl = 'https://cuaca-gempa-rest-api.vercel.app';
-
   async function getQuake(): Promise<Quake | undefined> {
     try {
-      const response: AxiosResponse = await axios.get(`${apiBaseUrl}/quake`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        timeout: 3000,
-      });
-
-      const quakeData: Quake = await response.data.data;
-      return quakeData;
+      const response: AxiosResponse<ResponseData> = await axiosInstance.get(
+        '/quake'
+      );
+      const responseData: ResponseData = response.data;
+      const { data } = responseData;
+      return data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response) {
@@ -34,17 +31,12 @@ const apiService = (() => {
     province: string
   ): Promise<WeatherProvince | undefined> {
     try {
-      const response: AxiosResponse = await axios.get(
-        `${apiBaseUrl}/weather/${province}`,
-        {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-          timeout: 3000,
-        }
-      );
+      const response: AxiosResponse<ResponseData, WeatherProvince> =
+        await axiosInstance.get(`/weather/${province}`);
 
-      const weatherProvince: WeatherProvince = await response.data.data;
-      return weatherProvince;
+      const responseData: ResponseData = response.data;
+      const { data } = responseData;
+      return data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response) {
@@ -66,17 +58,12 @@ const apiService = (() => {
     city: string
   ): Promise<WeatherCity | undefined> {
     try {
-      const response: AxiosResponse = await axios.get(
-        `${apiBaseUrl}/weather/${province}/${city}`,
-        {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' },
-          timeout: 3000,
-        }
-      );
+      const response: AxiosResponse<ResponseData, WeatherProvince> =
+        await axiosInstance.get(`/weather/${province}/${city}`);
+      const responseData: ResponseData = response.data;
+      const { data } = responseData;
 
-      const weatherCity: WeatherCity = await response.data.data;
-      return weatherCity;
+      return data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response) {

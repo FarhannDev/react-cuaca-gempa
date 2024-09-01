@@ -1,0 +1,3 @@
+interface ResponseData {
+  data?: never;
+}
