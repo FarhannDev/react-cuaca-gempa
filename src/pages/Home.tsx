@@ -31,11 +31,7 @@ const Home: React.FC = () => {
     WeatherProvince?.areas.map((area) => console.log(area.description))
   );
 
-  return (
-    <>
-      <div>Home</div>
-    </>
-  );
+  return <>{JSON.stringify(WeatherProvince)}</>;
 };
 
 export default Home;

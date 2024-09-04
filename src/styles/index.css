@@ -8,7 +8,8 @@ body {
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
-  background-color: #fff;
+  background-color: #1b1c1b !important;
+  color: rgba(255, 255, 255, 0.87) !important;
 
   font-synthesis: none;
   font-family: 'Poppins', sans-serif;
@@ -16,4 +17,103 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: auto;
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='email']:focus,
+input[type='number']:focus,
+[type='text'].form-control:focus,
+[type='password'].form-control:focus,
+[type='email'].form-control:focus,
+[type='tel'].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
+
+.main-content {
+  width: auto;
+  height: auto;
+  padding-top: 3em;
+}
+
+.main-content-container {
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+}
+
+.navbar .container.navbar-container__items {
+  width: 1200px;
+  height: auto;
+}
+
+.navbar.transparent.navbar-inverse {
+  width: 100%;
+  /* height: 60px; */
+  background: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.navbar .navbar-brand.navbar-brand__text {
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar .nav-link.custom-nav__link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.navbar .navbar-toggler {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  font-size: 18px;
+}
+
+.navbar .navbar-toggler:focus {
+  transition: ease-in-out 500ms;
+}
+
+.navbar .navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: none;
+  border: 0;
+}
+
+.navbar .navbar-collapse {
+  -webkit-transition: background-color 3000ms ease-in !important;
+  -moz-transition: background-color 3000ms ease-in !important;
+  -o-transition: background-color 3000ms ease-in !important;
+  transition: background-color 3000ms ease-in !important;
+  /* margin-left: 10px; */
+}
+
+@media (min-width: 1200px) {
+  .main-content-container {
+    width: 1200px !important;
+    margin: 0 auto;
+    height: auto;
+  }
+}
+
+.heading {
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27px;
+  margin-bottom: 13px;
+  text-transform: capitalize;
 }
