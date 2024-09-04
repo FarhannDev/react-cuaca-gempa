@@ -12,6 +12,7 @@
     "build:testing": "vite build --mode development",
     "build:preview": "tsc -b && vite build && vite preview",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview"
   },
   "dependencies": {

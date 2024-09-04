@@ -6,12 +6,12 @@ const menuListItem: MenuItem[] = [
 
   {
     name: 'Cuaca',
-    links: '/info-cuaca',
+    links: '/cuaca',
   },
 
   {
     name: 'Gempa',
-    links: '/info-gempa',
+    links: '/gempa',
   },
   {
     name: 'Tentang Kami',

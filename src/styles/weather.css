@@ -1,0 +1,66 @@
+.weather-container {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.weather-item-list {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.weather-item {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  padding: 20px;
+  flex: 1 1 calc(33.333% - 40px); /* 33.333% untuk tiga kolom, dikurangi jarak antar item */
+  min-width: 250px; /* Memastikan ukuran minimal agar tidak terlalu kecil */
+  box-sizing: border-box;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #bdbdbd;
+  background-color: transparent;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+/* Media queries untuk menyesuaikan layout pada ukuran layar lebih kecil */
+@media (max-width: 800px) {
+  .weather-item {
+    flex: 1 1 calc(50% - 40px); /* Beralih ke dua kolom pada layar yang lebih kecil */
+  }
+}
+
+@media (max-width: 500px) {
+  .weather-item {
+    flex: 1 1 100%; /* Beralih ke satu kolom pada layar yang sangat kecil */
+  }
+}
+
+.weather-item__description {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 13px;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #fff;
+}
+
+.weather-select__province {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 30px;
+  height: auto;
+}

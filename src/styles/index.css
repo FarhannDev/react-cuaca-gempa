@@ -117,3 +117,38 @@ input[type='number']:focus,
   margin-bottom: 13px;
   text-transform: capitalize;
 }
+
+.search-empty-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  text-align: center;
+  gap: 16px;
+}
+
+.search-empty__icon {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  width: 400px;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  object-position: center;
+}
+
+.search-empty__text {
+  width: 400px;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  text-transform: capitalize;
+  margin-top: 30px !important;
+  margin: 0 auto;
+  padding: 3px;
+}

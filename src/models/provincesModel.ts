@@ -1,8 +1,3 @@
-interface Provinces {
-  value: string;
-  label: string;
-}
-
 const provinces: Provinces[] = [
   { value: 'aceh', label: 'Aceh' },
   { value: 'sumatera-utara', label: 'Sumatera Utara' },

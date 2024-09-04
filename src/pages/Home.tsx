@@ -27,10 +27,6 @@ const Home: React.FC = () => {
     fetchQuakeData();
   }, []);
 
-  console.log(
-    WeatherProvince?.areas.map((area) => console.log(area.description))
-  );
-
   return <>{JSON.stringify(WeatherProvince)}</>;
 };
 
