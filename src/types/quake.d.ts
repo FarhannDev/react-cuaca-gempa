@@ -1,7 +1,7 @@
 interface Quake {
   tanggal: string;
   jam: string;
-  datetime: Date | string;
+  datetime: string;
   coordinates: string;
   lintang: string;
   bujur: string;

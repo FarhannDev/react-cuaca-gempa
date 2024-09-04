@@ -1,10 +1,9 @@
 import axios, { AxiosInstance } from 'axios';
-
-const apiBaseUri: string = 'https://cuaca-gempa-rest-api.vercel.app';
+import apiBaseUri from './api';
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: apiBaseUri,
-  timeout: 1000,
+  timeout: 3000,
   headers: { 'Content-Type': 'application/json' },
 });
 
