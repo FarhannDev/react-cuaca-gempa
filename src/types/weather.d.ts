@@ -48,17 +48,21 @@ interface WeatherCity {
   description: string;
   domain: string;
   tags: string | null;
-  params: Array[{
-    id: string;
-    description: string;
-    type: string;
-    times: [
-      {
-        type: string;
-        h: string;
-        datetime: string;
-        value: string;
-      }
-    ];
-  }];
+  params: [
+    {
+      id: string;
+      description: string;
+      type: string;
+      times: [
+        {
+          type: string;
+          h: string;
+          datetime: string;
+          value: string;
+          celcius?: string;
+          fahrenheit?: string;
+        }
+      ];
+    }
+  ];
 }

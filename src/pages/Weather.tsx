@@ -27,6 +27,7 @@ const Weather: React.FC = () => {
         const selectProvinceName = selectedProvince?.value
           ? selectedProvince?.value
           : '';
+
         const data: WeatherProvince | undefined =
           await apiService.getWeatherByProvince(selectProvinceName);
 

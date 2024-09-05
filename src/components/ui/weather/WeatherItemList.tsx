@@ -8,9 +8,11 @@ const WeatherItemList: React.FC<IProps> = ({ items, loading }) =>
     <div>Sedang memuat...</div>
   ) : (
     <div className="weather-item-list">
-      {items?.areas.map((area) => (
-        <WeatherItem key={area.id} {...area} />
-      ))}
+      {items?.areas
+        .sort((a, b) => a.description.localeCompare(b.description))
+        .map((area) => (
+          <WeatherItem key={area.id} {...area} />
+        ))}
     </div>
   );
 

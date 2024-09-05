@@ -4,6 +4,7 @@ import RootLayout from '../layouts/RootLayout';
 import ErrorPage from '../components/shared/error-page';
 import Quake from '../pages/Quake';
 import Weather from '../pages/Weather';
+import WeatherDetail from '../pages/WeatherDetail';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/cuaca',
         element: <Weather />,
+      },
+      {
+        path: '/cuaca/:prov/:city',
+        element: <WeatherDetail />,
       },
     ],
   },
