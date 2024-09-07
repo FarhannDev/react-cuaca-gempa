@@ -52,13 +52,15 @@ interface WeatherCity {
     id: string;
     description: string;
     type: string;
-    times: [
-      {
-        type: string;
-        h: string;
-        datetime: string;
-        value: string;
-      }
-    ];
+    times: Array[{
+      type: string;
+      h: string;
+      datetime: string;
+      value: string;
+      celcius?: string;
+      fahrenheit?: string;
+      code?: string;
+      name?: string;
+    }];
   }];
 }

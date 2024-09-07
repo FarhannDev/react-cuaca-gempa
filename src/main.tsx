@@ -3,6 +3,9 @@ import { createRoot, Root } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes/root';
 import './styles/index.css';
+import './styles/quake.css';
+import './styles/weather.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const rootElement = document.getElementById('root') as HTMLElement;
