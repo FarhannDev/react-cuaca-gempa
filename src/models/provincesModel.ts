@@ -1,4 +1,4 @@
-const provinces: Provinces[] = [
+const provinces: ProvinceOption[] = [
   { value: 'aceh', label: 'Aceh' },
   { value: 'sumatera-utara', label: 'Sumatera Utara' },
   { value: 'sumatera-barat', label: 'Sumatera Barat' },

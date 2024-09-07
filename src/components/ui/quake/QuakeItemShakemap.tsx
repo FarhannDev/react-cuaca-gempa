@@ -8,7 +8,7 @@ const QuakeShakeMapImage = ({ imageSource }: QuakeShakeImage) => (
       alt={''}
       src={imageSource}
       loading="lazy"
-      effect="blur"
+      effect="opacity"
       className="img-fluid quake-item__shakemap-image"
     />
   </div>

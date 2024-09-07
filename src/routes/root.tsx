@@ -1,32 +1,16 @@
-import { createBrowserRouter } from 'react-router-dom';
-import Home from '../pages/Home';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import RootLayout from '../layouts/RootLayout';
-import ErrorPage from '../components/shared/error-page';
-import Quake from '../pages/Quake';
-import Weather from '../pages/Weather';
-import WeatherDetail from '../pages/WeatherDetail';
+import WeatherForecast from '../pages/WeatherForecast';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    errorElement: <ErrorPage />,
+    errorElement: <Navigate to="/" replace />,
     children: [
       {
         index: true,
-        element: <Home />,
-      },
-      {
-        path: '/gempa',
-        element: <Quake />,
-      },
-      {
-        path: '/cuaca',
-        element: <Weather />,
-      },
-      {
-        path: '/cuaca/:prov/:city',
-        element: <WeatherDetail />,
+        element: <WeatherForecast />,
       },
     ],
   },

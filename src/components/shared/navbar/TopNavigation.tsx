@@ -1,15 +1,9 @@
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { RxHamburgerMenu } from 'react-icons/rx';
 import { useState } from 'react';
-import { menuListItem } from '../../../models/menuListModel';
 
 const TopNavigation = () => {
-  const [expanded, setExpanded] = useState(false);
-  const closeNavbar = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setExpanded(false);
-  };
+  const [expanded] = useState(false);
 
   return (
     <Navbar
@@ -21,16 +15,16 @@ const TopNavigation = () => {
     >
       <Container className="navbar-container__items ">
         <Link to="/" className="navbar-brand navbar-brand__text">
-          Nama Aplikasi{' '}
+          Weather Forecast
         </Link>
 
-        <Navbar.Toggle
+        {/* <Navbar.Toggle
           onClick={() => setExpanded(expanded ? false : true)}
           aria-controls="responsive-navbar-nav"
         >
           <RxHamburgerMenu fontSize={22} color="fff" />
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
+        </Navbar.Toggle> */}
+        {/* <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {menuListItem.map((menu, index) => (
               <Link
@@ -43,7 +37,7 @@ const TopNavigation = () => {
               </Link>
             ))}
           </Nav>
-        </Navbar.Collapse>
+        </Navbar.Collapse> */}
       </Container>
     </Navbar>
   );

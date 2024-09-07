@@ -16,17 +16,20 @@ const QuakeItem: React.FC<IProps> = ({
   dirasakan,
 }) => (
   <div className="quake-item">
-    <QuakeItemHeading heading={wilayah} />
     <QuakeShakeMapImage imageSource={shakemap} />
-    <QuakeItemContent
-      jam={jam}
-      tanggal={tanggal}
-      wilayah={wilayah}
-      potensi={potensi}
-      kedalaman={kedalaman}
-      magnitude={magnitude}
-      dirasakan={dirasakan}
-    />
+
+    <div className="quake-item__content-wrapper">
+      <QuakeItemHeading heading={wilayah} />
+      <QuakeItemContent
+        jam={jam}
+        tanggal={tanggal}
+        wilayah={wilayah}
+        potensi={potensi}
+        kedalaman={kedalaman}
+        magnitude={magnitude}
+        dirasakan={dirasakan}
+      />
+    </div>
   </div>
 );
 

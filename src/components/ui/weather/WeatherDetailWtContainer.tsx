@@ -1,59 +1,77 @@
 import * as React from 'react';
-import IconCerahBerawan from '/icons/cloudy.png';
-import IconMatahari from '/icons/sun.png';
-import IconHujan from '/icons/rain.png';
-
-type IProps = { weather: WeatherCity | undefined };
+import IconCuacaCerahBerawan from '/icons/cuaca_cerah_berawan.png';
+import IconCuacaCerah from '/icons/cuaca_cerah.png';
+// import IconCuacaHujan from '/icons/cuaca_hujan.png';
+import IconCuacaBerawan from '/icons/cuaca_berawan.png';
+import {
+  formatDateWithDayAndMonth,
+  parseDateTime,
+} from '../../../utils/formatDatetime';
 
 type WeatherDetailWtItemProps = {
-  type?: string;
   h?: string;
+  type?: string;
   datetime?: string;
-  code?: string;
-  name?: string;
+  weatherCode?: string;
+  weatherName?: string;
+  temperatureCelcius?: string;
+  temperatureFahrenheit?: string;
 };
 
+type WeatherDataProps = { weathers: WeatherDetailWtItemProps[] | undefined };
+
 const WeatherDetailWtItem: React.FC<WeatherDetailWtItemProps> = ({
-  name,
-  code,
+  weatherName,
+  weatherCode,
+  temperatureCelcius,
+  temperatureFahrenheit,
+  datetime,
 }) => {
   let iconCuaca;
 
   switch (true) {
-    case code === '1':
-      iconCuaca = IconCerahBerawan;
+    case weatherCode === '1':
+      iconCuaca = IconCuacaCerahBerawan;
       break;
-    case code === '3':
-      iconCuaca = IconHujan;
+    case weatherCode === '3':
+      iconCuaca = IconCuacaBerawan;
       break;
     default:
-      iconCuaca = IconMatahari;
+      iconCuaca = IconCuacaCerah;
       break;
   }
+
+  const datetimeString = datetime ? datetime : '';
+  const date = parseDateTime(datetimeString);
+  const formattedDate = formatDateWithDayAndMonth(date);
 
   return (
     <div className="weather-detail-wt__item">
       <img
         src={iconCuaca}
-        alt={name}
+        alt={weatherName}
         loading="lazy"
         className="weather-detail-wt__item-icon"
       />
-
-      <div className="weather-detail-wt__item-status">{name}</div>
+      <div className="weather-detail-wt__item-temperature">
+        {temperatureCelcius} / {temperatureFahrenheit}
+      </div>
+      <div className="weather-detail-wt__item-status">{weatherName}</div>
+      <div className="weather-detail-wt__item-status">{formattedDate}</div>
     </div>
   );
 };
 
-const WeatherDetailWtContainer: React.FC<IProps> = ({ weather }) => {
-  const items = weather?.params?.find((weather) => weather.id === 'weather');
-
+const WeatherDetailWtContainer: React.FC<WeatherDataProps> = ({ weathers }) => {
   return (
     <>
-      <div className="weather-detail-wt">
+      <div className="weather-detail-wt mt-5 mb-5">
+        <div className="weather-detail-wt__heading">
+          Prakiraan Cuaca Selama 3 Hari
+        </div>
         <div className="weather-detail-wt__itemlist">
-          {items?.times.map((time, index) => (
-            <WeatherDetailWtItem key={+index} {...time} />
+          {weathers?.map((weather, index) => (
+            <WeatherDetailWtItem key={+index} {...weather} />
           ))}
         </div>
       </div>
