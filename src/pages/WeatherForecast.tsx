@@ -1,35 +1,28 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SingleValue } from 'react-select';
 import Swal from 'sweetalert2';
-import Heading from '../components/shared/Heading';
 import provinces from '../models/provincesModel';
-import SearchEmpty from '../components/ui/search/SearchEmpty';
 import apiService from '../services/apiService';
 import formatString from '../utils/formatString';
-import WeatherDetailWtContainer from '../components/ui/weather/WeatherDetailWtContainer';
-import WeatherSelected from '../components/ui/weather/WeatherSelected';
-import QuakeShakeMapImage from '../components/ui/quake/QuakeItemShakemap';
-import QuakeItemList from '../components/ui/quake/QuakeItemList';
+import MyComponent from '../components/MyComponent';
 
 const WeatherForecast: React.FC = () => {
-  const [provincesOptions, setProvincesOptions] = useState<ProvinceOption[]>(
-    () => {
-      return provinces.sort((a, b) => a.label.localeCompare(b.label));
-    }
-  );
+  const [provincesOptions] = useState<ProvinceOption[]>(() => {
+    return provinces.sort((a, b) => a.label.localeCompare(b.label));
+  });
   const [citiesOptions, setCitiesOptions] = useState<CityOption[]>([]);
   const [selectedProvince, setSelectedProvince] =
     useState<SingleValue<ProvinceOption>>(null);
   const [selectedCity, setSelectedCity] =
     useState<SingleValue<CityOption>>(null);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [keyword, setKeyword] = useState(
-    () => searchParams.get('_prov') || searchParams.get('_city') || ''
-  );
+  const [, setSearchParams] = useSearchParams();
+  // const [keyword, setKeyword] = useState(
+  //   () => searchParams.get('_prov') || searchParams.get('_city') || ''
+  // );
   const [datas, setDatas] = useState<WeatherCity | undefined>();
   const [textHeading, setTextHeading] = useState<string>('');
 
@@ -52,7 +45,7 @@ const WeatherForecast: React.FC = () => {
             selectedProvince ? selectedProvince.value : ''
           );
 
-        const result = data?.areas.map((area) => {
+        const result = data?.areas.map((area: any) => {
           return {
             value: formatString(area.description),
             label: area.description,
@@ -61,7 +54,7 @@ const WeatherForecast: React.FC = () => {
         });
 
         if (result) {
-          const citiesSort = result?.sort((a, b) =>
+          const citiesSort = result?.sort((a: any, b: any) =>
             a.label.localeCompare(b.label)
           );
 
@@ -80,14 +73,14 @@ const WeatherForecast: React.FC = () => {
         _city: selectedCity.value,
       });
       setTextHeading(
-        `Menelusuri  ${selectedCity.label}, ${selectedProvince.label} `
+        `Menelusuri  ${selectedCity.label}, ${selectedProvince.label}`
       );
-
       const getWeatherByCityData = async () => {
         if (selectedProvince && selectedCity) {
-          const provinces = selectedProvince?.value;
-          const cities = selectedCity?.value;
-          const data = await apiService.getWeatherByCity(provinces, cities);
+          const provinces: string = selectedProvince?.value;
+          const cities: string = selectedCity?.value;
+          const data: WeatherCity | undefined =
+            await apiService.getWeatherByCity(provinces, cities);
 
           setDatas(data);
         }
@@ -140,7 +133,7 @@ const WeatherForecast: React.FC = () => {
   return (
     <>
       <div className="wf-container pb-5">
-        <WeatherSelected
+        <MyComponent.WeatherSelected
           provincesOptions={provincesOptions}
           selectedProvince={selectedProvince}
           citiesOptions={citiesOptions}
@@ -152,7 +145,7 @@ const WeatherForecast: React.FC = () => {
 
         {!datas && (
           <div className="py-3 wf-search-container">
-            <SearchEmpty text="Belum ada pencarian." />{' '}
+            <MyComponent.SearchEmpty text="Belum ada pencarian." />{' '}
           </div>
         )}
 
@@ -160,7 +153,7 @@ const WeatherForecast: React.FC = () => {
           <>
             <div className="wf-content">
               <div className="wf-content__heading pt-5">
-                <Heading headingName={textHeading} />
+                <MyComponent.Heading headingName={textHeading} />
               </div>
 
               <div className="wf-content__quake">
@@ -168,11 +161,11 @@ const WeatherForecast: React.FC = () => {
                   INFO GEMPA TERKINI <hr className="text-secondary" />
                 </div>
 
-                <QuakeItemList quake={quakeData} />
+                <MyComponent.QuakeItemList quake={quakeData} />
               </div>
 
               <div className="wf-content__weather pb-3">
-                <WeatherDetailWtContainer weathers={mergedData} />
+                <MyComponent.WeatherDetailWtContainer weathers={mergedData} />
               </div>
             </div>
           </>

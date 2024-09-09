@@ -8,33 +8,31 @@ interface WeatherProvince {
     minute: string;
     second: string;
   };
-  areas: [
-    {
-      id?: string;
-      latitude: string;
-      longitude: string;
-      coordinate: string;
-      type: string;
-      region: string | null;
-      level: string;
+  areas: Array[{
+    id?: string;
+    latitude: string;
+    longitude: string;
+    coordinate: string;
+    type: string;
+    region: string | null;
+    level: string;
+    description: string;
+    domain: string;
+    tags: string | null;
+    params: Array[{
+      id: string;
       description: string;
-      domain: string;
-      tags: string | null;
-      params: Array[{
-        id: string;
-        description: string;
-        type: string;
-        times: [
-          {
-            type: string;
-            h: string;
-            datetime: string;
-            value: string;
-          }
-        ];
-      }];
-    }
-  ];
+      type: string;
+      times: [
+        {
+          type: string;
+          h: string;
+          datetime: string;
+          value: string;
+        }
+      ];
+    }];
+  }];
 }
 
 interface WeatherCity {

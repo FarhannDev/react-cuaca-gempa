@@ -1,10 +1,7 @@
 import * as React from 'react';
-import QuakeShakeMapImage from './QuakeItemShakemap';
-import QuakeItemContent from './QuakeItemContent';
-import QuakeItemHeading from './QuakeItemHeading';
+import MyComponent from '../../MyComponent';
 
 type IProps = Quake;
-
 const QuakeItem: React.FC<IProps> = ({
   jam,
   tanggal,
@@ -16,11 +13,11 @@ const QuakeItem: React.FC<IProps> = ({
   dirasakan,
 }) => (
   <div className="quake-item">
-    <QuakeShakeMapImage imageSource={shakemap} />
+    <MyComponent.QuakeShakeMapImage imageSource={shakemap} />
 
     <div className="quake-item__content-wrapper">
-      <QuakeItemHeading heading={wilayah} />
-      <QuakeItemContent
+      <MyComponent.QuakeItemHeading heading={wilayah} />
+      <MyComponent.QuakeItemContent
         jam={jam}
         tanggal={tanggal}
         wilayah={wilayah}

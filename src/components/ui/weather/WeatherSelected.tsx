@@ -1,7 +1,7 @@
 import React from 'react';
 import Select, { SingleValue } from 'react-select';
-import Heading from '../../shared/Heading';
 import customTheme from '../../../utils/customTheme';
+import MyComponent from '../../MyComponent';
 
 interface WeatherSelectedProvince {
   provincesOptions: ProvinceOption[];
@@ -73,7 +73,7 @@ const WeatherSelected: React.FC<WeatherSelectedProps> = ({
     <>
       <div className="wf-forminput-container">
         <div className="wf-forminput__heading">
-          <Heading headingName="Pilih Berdasarkan Provinsi & Kota" />
+          <MyComponent.Heading headingName="Pilih Berdasarkan Provinsi & Kota" />
           <hr className="text-secondary" />
         </div>
 

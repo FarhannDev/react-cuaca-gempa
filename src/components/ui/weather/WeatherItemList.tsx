@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import WeatherItem from './WeatherItem';
+import MyComponent from '../../MyComponent';
 
 type IProps = { items: WeatherProvince; loading?: boolean };
 
@@ -9,9 +10,9 @@ const WeatherItemList: React.FC<IProps> = ({ items, loading }) =>
   ) : (
     <div className="weather-item-list">
       {items?.areas
-        .sort((a, b) => a.description.localeCompare(b.description))
-        .map((area) => (
-          <WeatherItem key={area.id} {...area} />
+        .sort((a: any, b: any) => a.description.localeCompare(b.description))
+        .map((area: any) => (
+          <MyComponent.WeatherItem key={area.id} {...area} />
         ))}
     </div>
   );
